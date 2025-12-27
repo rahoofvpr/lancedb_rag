@@ -3,7 +3,7 @@
 ## Overview
 
 This repository is a small Retrieval-Augmented Generation (RAG) example that:
-- loads documents from `data_source/` (PDF/text),
+- loads documents from `data_source/` (PDF/CSV/Excel/Other),
 - splits them into chunks,
 - inserts them into a LanceDB table with automatic vectorization using a `sentence-transformers` model,
 - runs a simple interactive query loop that searches the DB for relevant chunks and calls Google Gemini (via the `google-genai` client) to generate answers using only the retrieved context.
@@ -35,15 +35,15 @@ python -m pip install -r requirements.txt
 
 ## Configuration
 
-1. Create a `.env` file at the repo root with your Google Gemini / GenAI credentials. The project calls `load_dotenv()` and uses `google.genai.Client()` — set the environment variables expected by the `google-genai` library (for example a `GENAI_API_KEY` or credentials described in the `google-genai` docs).
+1. Create a `.env` file at the repo root with your Google Gemini / GenAI credentials. The project calls `load_dotenv()` and uses `google.genai.Client()` — set the environment variables expected by the `google-genai` library (for example a `GEMINI_API_KEY` or credentials described in the `google-genai` docs).
 
 Example `.env` (adjust according to provider docs):
 
 ```
-GENAI_API_KEY=your_api_key_here
+GEMINI_API_KEY=your_api_key_here
 ```
 
-2. Place documents you want indexed under `data_source/` (PDF or text). A `sample.pdf` is included as an example.
+2. Place documents you want indexed under `data_source/` (PDF/CSV/Excel/Other). A `sample.pdf` is included as an example.
 
 ## How it works (brief)
 
