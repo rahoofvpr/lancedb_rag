@@ -1,0 +1,6 @@
+dotenv
+google-genai
+lancedb
+sentence-transformers
+langchain-text-splitters
+llama-index
